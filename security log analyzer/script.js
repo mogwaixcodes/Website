@@ -159,19 +159,17 @@ function analyzeLogs(logs) {
 
 function displayLogs(logs) {
 
-    logTableBody.innerHTML = "";
+    logTableBody.replaceChildren();
 
     logs.forEach(function(log) {
 
         const row = document.createElement("tr");
 
-        row.innerHTML = `
-            <td>${log.ip}</td>
-            <td>${log.method}</td>
-            <td>${log.path}</td>
-            <td>${log.status}</td>
-            <td>${log.time}</td>
-        `;
+        [log.ip, log.method, log.path, log.status, log.time].forEach(function(value) {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
 
         logTableBody.appendChild(row);
 
@@ -187,14 +185,15 @@ function displaySuspiciousActivity(suspicious) {
 
     if (suspicious.length === 0) {
 
-        suspiciousActivity.innerHTML =
-            "<p>No suspicious activity detected.</p>";
+        const message = document.createElement("p");
+        message.textContent = "No suspicious activity detected.";
+        suspiciousActivity.replaceChildren(message);
 
         return;
     }
 
 
-    suspiciousActivity.innerHTML = "";
+    suspiciousActivity.replaceChildren();
 
 
     suspicious.forEach(function(item) {
@@ -203,12 +202,19 @@ function displaySuspiciousActivity(suspicious) {
 
         alertBox.className = "alert";
 
-        alertBox.innerHTML = `
-            <strong>Potential suspicious activity</strong>
-            <p>IP Address: ${item.ip}</p>
-            <p>Failed Requests: ${item.failures}</p>
-            <p>Total Requests: ${item.total}</p>
-        `;
+        const heading = document.createElement("strong");
+        heading.textContent = "Potential suspicious activity";
+        alertBox.appendChild(heading);
+
+        [
+            ["IP Address", item.ip],
+            ["Failed Requests", item.failures],
+            ["Total Requests", item.total]
+        ].forEach(function(entry) {
+            const detail = document.createElement("p");
+            detail.textContent = `${entry[0]}: ${entry[1]}`;
+            alertBox.appendChild(detail);
+        });
 
         suspiciousActivity.appendChild(alertBox);
 
@@ -258,11 +264,19 @@ analyzeButton.addEventListener("click", function() {
 
     /* Update traffic section */
 
-    trafficDisplay.innerHTML = `
-        <p><strong>Requests analyzed:</strong> ${results.total}</p>
-        <p><strong>Failed requests:</strong> ${results.failed}</p>
-        <p><strong>Server errors:</strong> ${results.serverErrors}</p>
-    `;
+    trafficDisplay.replaceChildren();
+
+    [
+        ["Requests analyzed", results.total],
+        ["Failed requests", results.failed],
+        ["Server errors", results.serverErrors]
+    ].forEach(function(entry) {
+        const detail = document.createElement("p");
+        const label = document.createElement("strong");
+        label.textContent = `${entry[0]}:`;
+        detail.append(label, ` ${entry[1]}`);
+        trafficDisplay.appendChild(detail);
+    });
 
 });
 
@@ -291,14 +305,16 @@ clearButton.addEventListener("click", function() {
     serverErrors.textContent = "0";
 
 
-    trafficDisplay.innerHTML =
-        "<p>No log data analyzed yet.</p>";
+    const trafficMessage = document.createElement("p");
+    trafficMessage.textContent = "No log data analyzed yet.";
+    trafficDisplay.replaceChildren(trafficMessage);
 
 
-    suspiciousActivity.innerHTML =
-        "<p>No suspicious activity detected.</p>";
+    const suspiciousMessage = document.createElement("p");
+    suspiciousMessage.textContent = "No suspicious activity detected.";
+    suspiciousActivity.replaceChildren(suspiciousMessage);
 
 
-    logTableBody.innerHTML = "";
+    logTableBody.replaceChildren();
 
 });
