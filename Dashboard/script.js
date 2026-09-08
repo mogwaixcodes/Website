@@ -197,48 +197,20 @@ const weatherData = {
     humidity: 48,
     wind: 6
 };
-const API_KEY = "a935bba53deb9b06766004f6c8608378";
-const CITY = "Portland";
 
-const url =
-    `https://api.openweathermap.org/data/2.5/weather` +
-    `?q=${CITY}` +
-    `&appid=${API_KEY}` +
-    `&units=imperial`;
+function displayWeather(data) {
+    weatherElement.replaceChildren();
 
-console.log("Requesting weather...");
-console.log(url);
+    const temperature = document.createElement("p");
+    temperature.textContent = `${data.temperature}°F`;
 
-fetch(url)
-    .then(response => {
+    const conditions = document.createElement("p");
+    conditions.textContent = data.conditions;
 
-        console.log("Response status:", response.status);
+    weatherElement.append(temperature, conditions);
+}
 
-        return response.json();
-    })
-    .then(data => {
-
-        console.log("OpenWeather response:", data);
-
-        if (data.cod !== 200) {
-            throw new Error(data.message);
-        }
-
-        const temperature = data.main.temp;
-        const conditions = data.weather[0].description;
-
-        weatherElement.innerHTML = `
-            <p>${temperature}°F</p>
-            <p>${conditions}</p>
-        `;
-    })
-    .catch(error => {
-
-        console.error("Weather error:", error);
-
-        weatherElement.textContent =
-            `Weather error: ${error.message}`;
-    });
+displayWeather(weatherData);
 
     console.log("Weather JavaScript is running");
 
@@ -310,63 +282,29 @@ quoteElement.textContent = `"${randomQuote}"`;
 
 const newsList = document.getElementById("newsList");
 
-const NEWS_API_KEY = "-ks7WGDvmEr1rqZE9VTZFMad72sOJh22qTmL-Lp29WWXm6z_";
+function displayNews(stories) {
+    newsList.replaceChildren();
 
-const newsURL =
-    `https://api.currentsapi.services/v1/latest-news` +
-    `?language=en` +
-    `&page_size=5`;
+    stories.forEach(story => {
+        const article = document.createElement("article");
+        article.classList.add("news-item");
 
-fetch(newsURL, {
-    headers: {
-        "Authorization": NEWS_API_KEY
-    }
-})
-    .then(response => {
+        const title = document.createElement("h3");
+        title.textContent = story.title;
 
-        if (!response.ok) {
-            throw new Error(
-                `News request failed: ${response.status}`
-            );
-        }
+        const description = document.createElement("p");
+        description.textContent = story.description;
 
-        return response.json();
-    })
-    .then(data => {
+        const author = document.createElement("span");
+        author.textContent = story.author;
 
-        console.log("News data:", data);
-
-        newsList.innerHTML = "";
-
-        data.news.forEach(story => {
-
-            const article = document.createElement("article");
-
-            article.classList.add("news-item");
-
-            article.innerHTML = `
-                <h3>${story.title}</h3>
-
-                <p>
-                    ${story.description || "No description available."}
-                </p>
-
-                <span>
-                    ${story.author || "News source"}
-                </span>
-            `;
-
-            newsList.appendChild(article);
-        });
-    })
-    .catch(error => {
-
-        console.error("News error:", error);
-
-        newsList.innerHTML = `
-            <article class="news-item">
-                <h3>News unavailable</h3>
-                <p>Unable to load the latest news right now.</p>
-            </article>
-        `;
+        article.append(title, description, author);
+        newsList.appendChild(article);
     });
+}
+
+displayNews([{
+    title: "News updates unavailable",
+    description: "Live news is disabled until it can be loaded through a secure server-side proxy.",
+    author: "Dashboard"
+}]);
