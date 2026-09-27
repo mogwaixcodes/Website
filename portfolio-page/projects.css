@@ -16,7 +16,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: grey; /* soft dark gray */
-  background-color: #ffffff;
+  background-color: #4338ca;
   margin: 0;
 }
 
@@ -36,15 +36,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #eaeaea;
+  background-color: #4f46e5;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo {
-  color:  black;
+  color:  white;
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -57,23 +56,25 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-links a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: 500;
 }
 
 .menu-toggle {
+  color: white;
   display: none;
   font-size: 1.8rem;
-  background: none;
+  background:none;
   border: none;
   cursor: pointer;
+
 }
 
 /* =========================
    Page Header
 ========================= */
 .page-header {
-  min-height: 90vh;
+  min-height: 95vh;
   padding: 4rem 2rem 3rem;
   text-align: center;
   background-color: #f5f7fa;
@@ -107,10 +108,11 @@ h1, h2, h3, h4, h5, h6 {
    Projects Grid
 ========================= */
 .projects-grid {
+  background-color: #4338ca;
   max-width: 1100px;
-  min-height: 80vh;
+  min-height: 60vh;
   margin: 0 auto;
-  padding: 4rem 2rem 3rem;
+  padding: 3rem 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
@@ -123,6 +125,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #ffffff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
+  height: 400px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -142,7 +145,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .project-content {
-  padding: 1.0rem;
+  padding: 1.25rem;
 }
 
 .project-content h3 {
@@ -199,15 +202,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .nav-links {
+    padding: 1.5rem 0 1.5rem 0;
     display: none;
     position: absolute;
     top: 64px;
     right: 0;
     width: 100%;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #4f46e5;
     text-align: center;
-    border-bottom: 1px solid #eaeaea;
+    z-index: 3000;
   }
 
   .nav-links.active {

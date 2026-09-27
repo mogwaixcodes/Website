@@ -23,8 +23,12 @@
       font-family: "Playfair Display", serif;
       font-weight: 500;
       letter-spacing: 0.03em;
-      color: black;
+      color: white;
       margin-top: 0;
+    }
+
+    p {
+      color:white;
     }
     /* Navbar */
     .navbar {
@@ -32,15 +36,14 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: #ffffff;
-      border-bottom: 1px solid #eaeaea;
+      background-color: #4f46e5;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .logo {
-      color: black;
+      color: white;
       font-size: 1.4rem;
       font-weight: bold;
     }
@@ -53,20 +56,22 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #333;
+      color: white;
       font-weight: 500;
     }
 
     .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
+  display: none;
+  font-size: 1.8rem;
+  background-color: #4f46e5;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
 
 /* Generic grid container */
-  
+
   .grid-container {
   display: grid;
 
@@ -85,8 +90,8 @@
   object-fit: cover; /* or contain, depending on desired effect */
 }
 .grid-item {
-  
-  background: #ffffff;
+
+  background: white;
   border: 1px solid #eaeaea;
   border-radius: 8px;
 
@@ -101,11 +106,12 @@
 }
     /* Hero */
     .project-hero {
-      min-height: 90vh;
+      min-height: 95vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 4rem 2rem;
+      align-items: center;
       text-align: center;
       background-image: linear-gradient(
           rgba(0, 0, 0, 0.6),
@@ -119,6 +125,8 @@
     }
 
     .project-hero h1 {
+      position: relative;
+      bottom: 45px;
       font-size: 2.5rem;
       margin-bottom: 1rem;
       animation: fadeUp 0.8s ease forwards;
@@ -126,6 +134,8 @@
     }
 
     .project-hero p {
+      position: relative;
+      bottom: 45px;
       max-width: 600px;
       margin: 0 auto;
       animation: fadeUp 0.8s ease forwards;
@@ -135,6 +145,7 @@
 
     /* Content sections */
     section {
+      background-color: #4338ca;
       padding: 3rem 2rem;
       max-width: 1920px;
       margin: auto;
@@ -212,7 +223,9 @@
       background: #f5f7fa;
       margin-top: 3rem;
     }
-
+    footer p{
+      color: black;
+    }
     /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
@@ -224,16 +237,17 @@
       .menu-toggle { display: block; }
 
       .nav-links {
-        display: none;
-        position: absolute;
-        top: 64px;
-        right: 0;
-        width: 100%;
-        flex-direction: column;
-        background-color: #ffffff;
-        text-align: center;
-        border-bottom: 1px solid #eaeaea;
-      }
+    padding: 1.5rem 0 1.5rem 0;
+    display: none;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #4f46e5;
+    text-align: center;
+    z-index: 3000;
+  }
 
       .nav-links.active { display: flex; }
 
