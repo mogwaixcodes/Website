@@ -231,6 +231,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 25px;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  transform: translateX(-20px)
 }
 
 .feature {
@@ -239,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2rem;
   text-align: center;
   width: 235px;
+  
 }
 
 .feature:nth-child(2) {
