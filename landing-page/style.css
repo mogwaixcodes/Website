@@ -257,12 +257,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .feature-icon {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100%;
+  width: 75%;
   margin: 0 auto;
 }
 
@@ -530,7 +529,6 @@ textarea:focus {
       .nav-links.active { display: flex; }
 
       .nav-links li { padding: 2rem 0; }
-    }
 
   .contact-grid {
     grid-template-columns: 1fr;
@@ -545,11 +543,11 @@ textarea:focus {
   .contact-hero {
     background-attachment: scroll;
   }
+}
 
-
- footer {
-      padding: 2rem;
-      text-align: center;
-      background-color: #4f46e5;
-      margin-top: 3rem;
-    }
+footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: #4f46e5;
+  margin-top: 3rem;
+}
