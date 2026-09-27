@@ -217,7 +217,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ================= FEATURES ================= */
 .features {
-  background-color:#4338ca;
+  background-color: #4338ca;
   padding: 2rem;
   text-align: center;
   border: 2px solid rgba(255, 255, 255, 0.8);
@@ -231,17 +231,16 @@ h1, h2, h3, h4, h5, h6 {
   gap: 25px;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  
 }
 
 .feature {
-  flex:1;
+  flex: 0 0 235px;
   font-size: 1.8rem;
   padding: 2rem;
   text-align: center;
   width: 235px;
-  flex: 0 0 235px;
 }
+
 .feature:nth-child(2) {
   transform: translateY(20px);
 }
@@ -263,6 +262,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .features {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
+
   .feature-list {
     width: 100%;
     flex-direction: column;
@@ -273,14 +277,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 0;
     transform: none;
   }
-  .features{
-    padding-left:20px;
-  }
 
-  .feature{
+  .feature {
     flex: none;
     width: 235px;
   }
+
   .feature:nth-child(3) {
     transform: translateY(20px);
   }
