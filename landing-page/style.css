@@ -264,9 +264,19 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .feature-list {
+    width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    transform: none;
+  }
+
+  .feature{
+    flex: none;
+    width: 235px;
   }
   .feature:nth-child(3) {
     transform: translateY(20px);
