@@ -187,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto 3rem;
   font-size: 1rem;
   opacity: 0.9;
-
+  
 }
 
 .intro-highlights {
@@ -206,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
 .highlight p {
   font-size: 0.9rem;
   opacity: 0.85;
-
+  
 }
 
 @media (max-width: 768px) {
@@ -231,7 +231,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 25px;
   margin-top: 1rem;
   margin-bottom: 2rem;
-
+  
 }
 
 .feature {
@@ -240,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 2rem;
   text-align: center;
   width: 235px;
+  flex: 0 0 235px;
 }
 .feature:nth-child(2) {
   transform: translateY(20px);
@@ -265,9 +266,7 @@ h1, h2, h3, h4, h5, h6 {
   .feature-list {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 20px;
-
   }
   .feature:nth-child(3) {
     transform: translateY(20px);
@@ -291,7 +290,7 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover; /* or contain, depending on desired effect */
 }
 
-
+  
   .grid-container {
   display: grid;
 
@@ -308,7 +307,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Grid items */
 
 .grid-item {
-
+  
   background-color: white;
   border: 1px solid #eaeaea;
   border-radius: 8px;
